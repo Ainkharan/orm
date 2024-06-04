@@ -1,9 +1,9 @@
 package orm.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import org.hibernate.annotations.Generated;
 
 @Entity // marks a class as a persistent entity in the database
@@ -17,7 +17,7 @@ public class Comment {
     String datePosted;
 
 
-    @ManyToOne || @OneToMany
-    User author;
+    @ManyToOne(fetch = FetchType.LAZY)
+    Customer author;
     Recipe associatedRecipe;
 }

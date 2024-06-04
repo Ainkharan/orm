@@ -24,7 +24,7 @@ public class Recipe {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    User creator;
+    Customer creator;
     @OneToOne
     Set<Ingredient> listOfIngredients;
     @OneToMany
