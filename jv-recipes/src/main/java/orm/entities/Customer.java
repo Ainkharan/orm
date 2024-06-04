@@ -1,7 +1,6 @@
 package orm.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import org.hibernate.annotations.Generated;
@@ -21,7 +20,7 @@ public class Customer {
     String password;
     Set<String> roles;
     LocalDateTime dateRegistered;
-
-    @OneToMany(fetch = FetchType.LAZY)
+    
+    @OneToMany(mappedBy = "customer") //
     Set<Comment> comment;
 }
