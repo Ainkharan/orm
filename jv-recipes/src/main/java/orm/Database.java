@@ -15,6 +15,7 @@ public class Database {
     public static SessionFactory getSessionFactory(){
         // SessionFactory - Interface responsible for creating and managing Session objects.
         var sessionFactory = new Configuration()
+                //.addAnnotatedClass(Recipe.class)
                 .setProperty("hibernate.agroal.maxSize", "20")
                 // use H2 in-memory database
                 .setProperty(URL, "jdbc:h2:mem:db1")
@@ -27,9 +28,10 @@ public class Database {
                 .setProperty(HIGHLIGHT_SQL, TRUE.toString())
                 .buildSessionFactory();
 
-
-
-
         return sessionFactory;
     }
+//    static void seed(){
+//        var sessionFactory = getSessionFactory();
+//        // TODO
+//    }
 }

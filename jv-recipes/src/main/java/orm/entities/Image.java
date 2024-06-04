@@ -2,6 +2,8 @@ package orm.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import org.hibernate.annotations.Generated;
 
 @Entity // marks a class as a persistent entity in the database
@@ -13,8 +15,8 @@ public class Image {
     String filename;
     String fileData;
 
-
-
+    @OneToOne
+    @JoinColumn(name = "recipe") //
     Recipe associatedRecipe;
 
 }

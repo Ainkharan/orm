@@ -22,11 +22,14 @@ public class Recipe {
     LocalDateTime dateCreated;
     LocalDateTime lastModified;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     Customer creator;
     @OneToOne
     Set<Ingredient> listOfIngredients;
     @OneToMany
     Set<Category> listOfCategories;
+
+    @OneToMany(mappedBy = "recipe") //
+    Set<Comment> comment;
+
 }

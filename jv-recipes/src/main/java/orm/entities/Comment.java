@@ -19,5 +19,6 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY)
     Customer author;
+    @ManyToOne(fetch = FetchType.LAZY)
     Recipe associatedRecipe;
 }
