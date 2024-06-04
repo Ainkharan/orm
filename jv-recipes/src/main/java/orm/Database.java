@@ -2,6 +2,8 @@ package orm;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import orm.entities.Ingredient;
+import orm.entities.Recipe;
 
 import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
@@ -15,7 +17,8 @@ public class Database {
     public static SessionFactory getSessionFactory(){
         // SessionFactory - Interface responsible for creating and managing Session objects.
         var sessionFactory = new Configuration()
-                //.addAnnotatedClass(Recipe.class)
+                .addAnnotatedClass(Recipe.class)
+                .addAnnotatedClass(Ingredient.class)
                 .setProperty("hibernate.agroal.maxSize", "20")
                 // use H2 in-memory database
                 .setProperty(URL, "jdbc:h2:mem:db1")

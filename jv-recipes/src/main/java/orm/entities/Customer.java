@@ -20,7 +20,10 @@ public class Customer {
     String password;
     Set<String> roles;
     LocalDateTime dateRegistered;
-    
+
     @OneToMany(mappedBy = "customer") //
     Set<Comment> comment;
+
+    @OneToMany(mappedBy = "customer") //
+    Set<Recipe> recipe;
 }
